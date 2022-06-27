@@ -5,8 +5,6 @@ import (
 	"myapp/handlers"
 	"myapp/middleware"
 
-	_ "net/http/pprof"
-
 	"github.com/cjfloss/celeritas"
 )
 

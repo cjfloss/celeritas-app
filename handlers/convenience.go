@@ -11,8 +11,8 @@ func (h *Handlers) render(w http.ResponseWriter, r *http.Request, tmpl string, v
 	return h.App.Render.Page(w, r, tmpl, variables, data)
 }
 
-func (h *Handlers) sessionPut(ctx context.Context, key string, value interface{}) {
-	h.App.Session.Put(ctx, key, value)
+func (h *Handlers) sessionPut(ctx context.Context, key string, val interface{}) {
+	h.App.Session.Put(ctx, key, val)
 }
 
 func (h *Handlers) sessionHas(ctx context.Context, key string) bool {
@@ -33,6 +33,10 @@ func (h *Handlers) sessionRenew(ctx context.Context) error {
 
 func (h *Handlers) sessionDestroy(ctx context.Context) error {
 	return h.App.Session.Destroy(ctx)
+}
+
+func (h *Handlers) randomString(n int) string {
+	return h.App.RandomString(n)
 }
 
 func (h *Handlers) encrypt(text string) (string, error) {

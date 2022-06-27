@@ -17,8 +17,7 @@
       <small class="text-muted">Go build something awesome</small>
     </div>
   </div>
-  
-  <hr>
+
 </div>
 
 {{end}}

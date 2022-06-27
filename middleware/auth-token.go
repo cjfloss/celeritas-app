@@ -10,6 +10,7 @@ func (m *Middleware) AuthToken(next http.Handler) http.Handler {
 				Error   bool   `json:"error"`
 				Message string `json:"message"`
 			}
+
 			payload.Error = true
 			payload.Message = "invalid authentication credentials"
 

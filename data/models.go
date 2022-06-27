@@ -18,6 +18,7 @@ var upper db2.Session
 type Models struct {
 	// any models inserted here (and in the New function)
 	// are easily accessible throughout the entire application
+
 }
 
 // New initializes the models package for use
@@ -32,21 +33,20 @@ func New(databasePool *sql.DB) Models {
 	case "sqlite", "sqlite3":
 		upper, _ = sqlite.New(databasePool)
 	default:
-		// Do Nothing
+		// do nothing
 	}
 
-	return Models{}
+	return Models{
+
+	}
 }
 
 // getInsertID returns the integer value of a newly inserted id (using upper)
 func getInsertID(i db2.ID) int {
 	idType := fmt.Sprintf("%T", i)
-	fmt.Print(idType)
-	i2 := i
-	fmt.Printf("i: %v\n", i)
 	if idType == "int64" {
-		return int(i2.(int64))
+		return int(i.(int64))
 	}
 
-	return int(i2.(int))
+	return i.(int)
 }
